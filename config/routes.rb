@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 	}
 
 	root to: "homes#top"
-	get "homes#about", to:"homes#about"
+	get "homes/about", to:"homes#about"
 
 	resources :sweets, only:[:index, :show]
 

@@ -1,0 +1,30 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><h1>LOGO</h1></a>
+    </div>
+
+      <ul class="nav navbar-nav navbar-right nav-pills">
+        <li role="presentation">
+          <%= link_to root_path do %>
+            <button type="button" class="btn btn-info navbar-btn"><h4>About</h4></button>
+          <% end %>
+        </li>
+        <li role="presentation">
+          <%= link_to root_path do %>
+            <button type="button" class="btn btn-warning navbar-btn"><h4>商品一覧</h4></button>
+          <% end %>
+        </li>
+        <li role="presentation">
+          <%= link_to root_path do %>
+            <button type="button" class="btn btn-success navbar-btn"><h4>新規登録</h4></button>
+          <% end %>
+        </li>
+        <li role="presentation">
+          <%= link_to root_path do %>
+            <button type="button" class="btn btn-success navbar-btn"><h4>ログイン</h4></button>
+          <% end %>
+        </li>
+      </ul>
+  </div>
+</nav>

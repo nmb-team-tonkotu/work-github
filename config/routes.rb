@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
 	resources :sweets, only:[:index, :show]
 
-	resource :customers, only:[:show, :edit, :udate]
+	resource :customers, only:[:show, :edit, :update]
 	get "customers/close_view", to: "customers#close_view"
 	patch "customers/close", to: "customers#close"
 

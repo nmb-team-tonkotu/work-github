@@ -10,8 +10,13 @@
   </head>
 
   <body>
-    <%= render partial: "layouts/header" %>
+    <header>
+      <%= render partial: "layouts/header" %>
+    </header>
 
-    <%= yield %>
+    <div class="container">
+      <%= flash[:notice] %>
+      <%= yield %>
+    </div>
   </body>
 </html>

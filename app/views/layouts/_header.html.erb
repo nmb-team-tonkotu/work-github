@@ -7,7 +7,7 @@
       <ul class="nav navbar-nav navbar-right nav-pills">
         <% if customer_signed_in? %>
           <li role="presentation">
-            <%= link_to root_path do %>
+            <%= link_to customers_path(current_customer.id) do %>
               <button type="button" class="btn btn-info navbar-btn"><h4>マイページ</h4></button>
             <% end %>
           </li>
@@ -17,12 +17,12 @@
             <% end %>
           </li>
           <li role="presentation">
-            <%= link_to root_path do %>
+            <%= link_to cart_items_path do %>
               <button type="button" class="btn btn-success navbar-btn"><h4>カート</h4></button>
             <% end %>
           </li>
           <li role="presentation">
-            <%= link_to root_path do %>
+            <%= link_to destroy_customer_session_path, method: :delete do %>
               <button type="button" class="btn btn-success navbar-btn"><h4>ログアウト</h4></button>
             <% end %>
           </li>

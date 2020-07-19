@@ -8,15 +8,16 @@ class Admins::SweetsController < ApplicationController
 	end
 
 	def new
-	  # @admin = Admin.find(params[:admin_id])
 	  @sweet = Sweet.new
-
 	end
 
 	def create
 	  @sweet = Sweet.new(sweet_params)
-	  @sweet.save
-	  redirect_to admins_sweet_path(@sweet.id)
+	  if @sweet.save
+	   redirect_to admins_sweet_path(@sweet.id)
+	  else
+		render 'new'
+	  end
 	end
 
 	def edit
@@ -25,13 +26,17 @@ class Admins::SweetsController < ApplicationController
 
 	def update
 	  @sweet = Sweet.find(params[:id])
-	  @sweet.update(sweet_params)
+	  if @sweet.update(sweet_params)
+	  	redirect_to admins_sweet_path(@sweet.id)
+	  else
+	  	render 'edit'
+	  end
 	end
 
 	private
 
 	def sweet_params
-		params.require(:sweet).permit(:name,:explanation,:non_taxed_price,:image_id,:sell_status,:genre_id)
+		params.require(:sweet).permit(:name,:explanation,:non_taxed_price,:image,:sell_status,:genre_id)
 	end
 
 end

@@ -3,25 +3,47 @@
 		<div class ="row">
 
 
-			<div class = "col-xs-11">
 				<h3>商品詳細</h3>
-				<div class ="row">
+				<br>
+				<br>
+
 					<div class ="col-xs-4">
-						<%= attachment_image_tag @sweet, :image,:fill,100,100 %>
+					  <div class="sweet_image">
+						  <%= attachment_image_tag @sweet, :image, :fill, 200, 150, size: "240x160" %>
+					  </div>
 					</div>
-					<div class ="col-xs-8">
-						<p><%= @sweet.name %></p>
-						<p><%= @sweet.explanation %></p>
-						
-						<p>税込価格<%= @sweet.non_taxed_price%>円</p>
-						<td><%= @sweet.genre_id %></td>
-						<td><%= @sweet_status %></td>
+					<div class ="col-xs-7">
+						<table class="table ditail-table">
+							<tr>
+					            <th>商品名</th>
+					             <td><%= @sweet.name %></td>
+					        </tr>
+					        <tr>
+						         <th>商品説明</th>
+						         <td><%= @sweet.explanation %></td>
+						     </tr>
+						     <tr>
+						         <th>税抜価格</th>
+						         <td><%= @sweet.non_taxed_price%>円</td>
+						     </tr>
+						     <tr>
+						         <th>税込価格</th>
+						         <td><%= "#{(@sweet.non_taxed_price * 1.10).round }" %>円</td>
+						     </tr>
 
-					</div>
+						     <tr>
+						     	 <th>ジャンル</th>
+						　　　　　　<td><%= @sweet.genre_id %></td>
+						     <tr>
+						         <th>販売ステータス</th>
+						         <td><%= @sweet.sell_status ? "販売中" : "販売停止中" %></td>
+						     </tr>
+					     </table>
+					     <%= link_to "編集", edit_admins_sweet_path(@sweet.id), class: "btn btn-primary" %>
 
-			</div>
 
+					 </div>
 
-
+		</div>
 	</div>
 </div>

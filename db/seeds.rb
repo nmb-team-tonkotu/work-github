@@ -12,17 +12,3 @@
 
 
 
-
-
-Customer.create!(
-	family_name: "大阪",
-	first_name: "太郎",
-	kana_family_name: "オオサカ",
-	kana_first_name: "タロウ",
-	postal_code: "111111",
-	address: "大阪府大阪市",
-	phone_number: "22233334444",
-	email: "osaka@gmail.com",
-	is_active: "true",
-	password: "000000"
-)

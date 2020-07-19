@@ -1,0 +1,39 @@
+<div class ="body">
+	<div class= "container">
+		<div class ="row">
+
+
+			<div class = "col-md-12">
+				<h2>商品一覧</h2>
+
+				<table class ="table table-striped">
+					<thead>
+
+						<tr>
+							<th>商品ID</th>
+							<th>商品名</th>
+							<th>税抜価格</th>
+							<th>ジャンル</th>
+							<th>ステータス</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @sweets.each do |sweet| %>
+						<tr>
+						     <td><%= sweet.id %></td>
+						     <td><%= sweet.name %></td>
+						     <td><%= sweet.non_taxed_price %></td>
+						     <td><%= sweet.genre_id %></td>
+						     <td><%=sweet.sell_status  ? "販売中" : "販売停止中" %></td>
+						 </tr>
+
+						<%end%>
+						<%= paginate @sweets %>
+					</tbody>
+				</table>
+			</div>
+
+
+
+	</div>
+</div>

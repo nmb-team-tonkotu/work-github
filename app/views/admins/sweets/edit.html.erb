@@ -1,0 +1,48 @@
+
+<div class ="body">
+	<div class= "container">
+		<div class ="row">
+
+			<h3>商品編集</h3>
+				<br>
+				<br>
+
+				<%= form_for @sweet,  :url => { controller: "admins/sweets", action: "update"} do |f| %>
+
+					<div class ="col-xs-4">
+					  <div class="sweet_image">
+					  	<%= f.attachment_field :image %>
+						  <%= attachment_image_tag @sweet, :image, :fill, 200, 150, size: "240x160" %>
+					  </div>
+					</div>
+					<div class ="col-xs-7">
+						<table class="table edit-table">
+							<tbody>
+							<tr>
+					            <th>商品名</th>
+					             <td><%= f.text_field :name, class: "form-control" %></td>
+					        </tr>
+					        <tr>
+						         <th>商品説明</th>
+						         <td><%= f.text_area :explanation, class: "form-control" %></td>
+						     </tr>
+						     <tr>
+						         <th>税抜価格</th>
+						         <td><%= f.number_field :non_taxed_price %> 　円</td>
+						     </tr>
+						     <tr>
+						     	 <th>ジャンル</th>
+						    </tr>
+						     <tr>
+						         <th>販売ステータス</th>
+						         <td><%= f.select :sell_status, [["販売停止中",true],["販売中",false]], include_blank: "--選択してください--" %></td>
+						     </tr>
+						     </tbody>
+					     </table>
+					      <%= f.submit '変更を保存する', class: "btn btn-primary" %>
+
+					</div>
+				<% end %>
+		</div>
+	</div>
+</div>

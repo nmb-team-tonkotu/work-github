@@ -1,0 +1,54 @@
+<div class ="body">
+	<div class= "container">
+		<div class ="row">
+
+
+			<div class="col-xs-12" >
+				<h2>商品新規登録</h2>
+				<div class = "row">
+                   <%= form_for @sweet, :url => { controller: "admins/sweets", action: "create"} do |f| %>
+				  <div class ="col-xs-5">
+				     <br>
+				     <br>
+					<div class ="field">
+				      <%= f.attachment_field :image, class: "sweet_image" %>
+					</div>
+				  </div>
+
+				  <div class ="col-xs-7">
+					<table class="table new-table">
+				      <tbody>
+				      	<br>
+				      	<br>
+					   <tr>
+				     	 <th>商品名</th>
+				     	 <td><%= f.text_field :name, :size=>"30x10", class: "form-control" %></td>
+				   	   </tr>
+				    	<tr>
+				          <th>商品説明</th>
+				          <td><%= f.text_area :explanation, :size=>"50x10", class: "form-control"  %></td>
+				        </tr>
+				        <tr>
+				          <th>ジャンル</th>
+				        </tr>
+				        <tr>
+				          <th>税抜価格</th>
+				          <td><%= f.number_field :non_taxed_price %> 円</td>
+				        </tr>
+				         <tr>
+				          <th>販売ステータス</th>
+				          <td><%= f.select :sell_status,[['販売中',true],['販売停止中',false]], :size=>"60x10", include_blank: "--選択してください--"  %></td>
+				        </tr>
+			           </tbody>
+				    </table>
+
+				      <%= f.submit '新規投稿', class: "btn btn-primary" %>
+				    </div>
+
+				    <% end %>
+
+			    </div>
+		    </div>
+		</div>
+	</div>
+</div>

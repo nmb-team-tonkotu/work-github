@@ -14,10 +14,6 @@
 
 
 
-
-
-
-
 Customer.create!(
 	family_name: "大阪",
 	first_name: "太郎",

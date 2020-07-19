@@ -1,0 +1,21 @@
+<table>
+    <thead>
+        <tr>
+        <th>商品ID</th>
+        <th>商品名</th>
+        <th>税抜価格</th>
+        <th>ジャンル</th>
+        <th>ステータス</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @sweets.each do |sweets|%>
+            <tr>
+                <td><%= "sweets.name" %></td>
+                <td><%= "sweets.non_taxed_price" %></td>
+                <td><%= "sweets.genre_id" %></td>
+                <td><%= "sweets.sell_status" %></td>
+            </tr>
+        <%  end %>
+    </tbody>
+</table>

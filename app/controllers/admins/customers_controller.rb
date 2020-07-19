@@ -1,11 +1,9 @@
 class Admins::CustomersController < ApplicationController
     def top
-        @order = Oder.alll
+        @order = Order.all
     end 
 
     def index
-        @customers = Customers.all
+        @customers = Customer.all
     end
-
-
 end

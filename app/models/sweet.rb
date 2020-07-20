@@ -1,7 +1,7 @@
 class Sweet < ApplicationRecord
 	belongs_to :genre
-	has_many :cart_items, dependent: :destroy
-	has_many :order_products,dependent: :destroy
+	has_many :order_sweets
+	has_many :carts
 	
   attachment :image
 	validates :sell_status, inclusion: {in: [true, false]}

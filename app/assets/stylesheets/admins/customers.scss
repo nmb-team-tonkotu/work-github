@@ -1,3 +1,15 @@
 // Place all the styles related to the admins::customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.admin_page_title{
+    background-color: #ddd;
+    display: inline-block;
+    padding: 3px 20px;
+    text-align: center;
+}
+
+.oder_count,
+.admin_customer_table {
+margin-top: 100px;
+}

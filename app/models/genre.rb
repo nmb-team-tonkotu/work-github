@@ -1,4 +1,4 @@
 class Genre < ApplicationRecord
-  belongs_to :sweet
+  has_many :sweets
   validates :sweet_genre, presence: true
 end

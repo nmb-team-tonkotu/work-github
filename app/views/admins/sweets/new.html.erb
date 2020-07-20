@@ -25,17 +25,19 @@
 				     	 <td><%= f.text_field :name, :size=>"30x10", class: "form-control" %></td>
 				   	   </tr>
 				    	<tr>
+							<tr>
 				          <th>商品説明</th>
 				          <td><%= f.text_area :explanation, :size=>"50x10", class: "form-control"  %></td>
-				        </tr>
-				        <tr>
+				      </tr>
+				      <tr>
 				          <th>ジャンル</th>
-				        </tr>
-				        <tr>
+									<td><%= f.collection_select :genre_id, Genre.all, :id, :sweet_genre, include_blank: "--選択してください--" %></td>
+				      </tr>
+				      <tr>
 				          <th>税抜価格</th>
 				          <td><%= f.number_field :non_taxed_price %> 円</td>
-				        </tr>
-				         <tr>
+				      </tr>
+				      <tr>
 				          <th>販売ステータス</th>
 				          <td><%= f.select :sell_status,[['販売中',true],['販売停止中',false]], :size=>"60x10", include_blank: "--選択してください--"  %></td>
 				        </tr>

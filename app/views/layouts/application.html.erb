@@ -8,13 +8,14 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
     <header>
-
-      <%= render partial: "layouts/header" %>
+      <% if current_customer %>
+        <%= render partial: "layouts/header" %>
+      <% else %>
+        <%= render partial: "layouts/admin_header" %>
+      <% end %>
     </header>
-
     <div class="container">
       <%= flash[:notice] %>
       <%= yield %>

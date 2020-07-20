@@ -15,8 +15,12 @@
                     <tr>
                         <td><%= "customer.id" %></td>
                         <td><%= link_to "customer.full_name",admins_customer_path(customer.id) %></td>
-                        <td><%= "customer.address" %></td>
-                        <td><%= "customer.is_active" %></td>
+                        <td><%= "customer.email" %></td>
+                        <% if customer.is_active === true %>
+                            <td><%= "有効" %></td>
+                        <% else %>
+                            <td><%= "退会済" %></td>
+                        <%end%>
                     </tr>
                 <%  end %>
                 <%= paginate @customers %>

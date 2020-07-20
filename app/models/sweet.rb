@@ -1,6 +1,9 @@
 class Sweet < ApplicationRecord
-
-    attachment :image
+	belongs_to :genre
+	has_many :order_sweets
+	has_many :carts
+	
+  attachment :image
 	validates :sell_status, inclusion: {in: [true, false]}
 	validates :image, presence: true
 	validates :name, presence: true

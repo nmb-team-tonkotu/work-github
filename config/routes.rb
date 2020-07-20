@@ -8,11 +8,13 @@ Rails.application.routes.draw do
 	}
 
 	root to: "homes#top"
-	get "homes#about", to:"homes#about"
+	get "homes/about", to:"homes#about"
 
 	resources :sweets, only:[:index, :show]
 
-	resource :customers, only:[:show, :edit, :udate]
+	resource :customers, only:[:show]
+	get "customers/editing", to:"customers#edit"
+	patch "customers/update", to:"customers#update"
 	get "customers/close_view", to: "customers#close_view"
 	patch "customers/close", to: "customers#close"
 

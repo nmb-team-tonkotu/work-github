@@ -1,4 +1,6 @@
 class Admins::SweetsController < ApplicationController
+  
+
 	def index
 	  @sweets = Sweet.page(params[:page]).reverse_order
 	end
@@ -38,5 +40,4 @@ class Admins::SweetsController < ApplicationController
 	def sweet_params
 		params.require(:sweet).permit(:name,:explanation,:non_taxed_price,:image,:sell_status,:genre_id)
 	end
-
 end

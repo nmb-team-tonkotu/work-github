@@ -1,4 +1,6 @@
 class Admins::CustomersController < ApplicationController
+    before_action :get_customer, only:[:show, :edit, :update]
+
     def top
         @order = Order.where("created_at >= ?", Date.today)
     end 
@@ -8,6 +10,34 @@ class Admins::CustomersController < ApplicationController
     end
 
     def show
-        @customer = Customer.find(params[:id])
+
     end
+
+    def edit
+        if @customer = Customer.update(customer_params)
+            redirect admins_customer_path(@customer)
+        else
+            render 'edit'
+        end
+    end
+    
+    private
+
+    def get_customer
+		@customer = Customer.find(params[:id])
+	end
+    
+    def customer_params
+		params.require(:customer).permit(
+			:family_name,
+			:first_name,
+			:kana_family_name,
+			:kana_first_name,
+			:email,
+			:postal_code,
+			:address,
+			:phone_number,
+			:is_active
+		)
+	end
 end

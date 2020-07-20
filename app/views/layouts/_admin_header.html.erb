@@ -1,0 +1,66 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><h1>LOGO</h1></a>
+    </div>
+
+
+
+    <% if admin_signed_in? %>
+
+      <ul class="nav navbar-nav navbar-right nav-pills">
+        <li role="presentation">
+          <%= link_to admins_sweets_path do %>
+            <button type="button" class="btn btn-info navbar-btn"><h4>商品一覧</h4></button>
+          <% end %>
+        </li>
+        <li role="presentation">
+          <%= link_to admins_customers_path do %>
+            <button type="button" class="btn btn-warning navbar-btn"><h4>会員一覧</h4></button>
+          <% end %>
+        </li>
+        <li role="presentation">
+          <%= link_to admins_orders_path do %>
+            <button type="button" class="btn btn-success navbar-btn"><h4>注文一覧</h4></button>
+          <% end %>
+        </li>
+        <li role="presentation">
+          <%= link_to admins_genres_path do %>
+            <button type="button" class="btn btn-success navbar-btn"><h4>ジャンル一覧</h4></button>
+          <% end %>
+        </li>
+        <li role="presentation">
+          <%= link_to destroy_admin_session_path, method: :delete  do %>
+            <button type="button" class="btn btn-success navbar-btn"><h4>ログアウト</h4></button>
+          <% end %>
+        </li>
+      </ul>
+
+    <% else %>
+
+      <ul class="nav navbar-nav navbar-right nav-pills">
+        <li role="presentation">
+          <%= link_to homes_about_path do %>
+            <button type="button" class="btn btn-info navbar-btn"><h4>About</h4></button>
+          <% end %>
+        </li>
+        <li role="presentation">
+          <%= link_to sweets_path do %>
+            <button type="button" class="btn btn-warning navbar-btn"><h4>商品一覧</h4></button>
+          <% end %>
+        </li>
+        <li role="presentation">
+          <%= link_to new_customer_registration_path do %>
+            <button type="button" class="btn btn-success navbar-btn"><h4>新規登録</h4></button>
+          <% end %>
+        </li>
+        <li role="presentation">
+          <%= link_to new_customer_session_path do %>
+            <button type="button" class="btn btn-success navbar-btn"><h4>ログイン</h4></button>
+          <% end %>
+        </li>
+      </ul>
+
+    <% end %>
+  </div>
+</nav>

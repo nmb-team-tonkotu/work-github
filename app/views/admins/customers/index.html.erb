@@ -1,0 +1,25 @@
+<div class="row">
+<div class= "col-6 col">
+<h3 class="admin_page_title">会員一覧</h3>
+<table class="table">
+    <thead>
+        <tr>
+        <th>会員ID</th>
+        <th>指名</th>
+        <th>メールアドレス</th>
+        <th>ステータス</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @customers.each do |customer|%>
+            <tr>
+                <td><%= "customer.id" %></td>
+                <td><%= "customer.family_name" %><%= "customer.first_name" %></td>
+                <td><%= "customer.address" %></td>
+                <td><%= "customer.is_active" %></td>
+            </tr>
+        <%  end %>
+    </tbody>
+</table>
+</div>
+

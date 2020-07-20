@@ -1,5 +1,5 @@
 class Sweet < ApplicationRecord
-	belongs_to :genre
+	belongs_to :genres
 	has_many :order_sweets
 	has_many :carts
 	

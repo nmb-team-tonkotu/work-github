@@ -8,12 +8,4 @@ class SweetsController < ApplicationController
 		@sweet = Sweet.find(params[:id])
 	end
 
-	def search
-		if params[:genre].present?
-			@sweets = Sweet.where('genre LIKE ?',"%#{params[:genre]}%")
-		else
-			@sweets = Sweet.none
-		end
-	end
-
 end

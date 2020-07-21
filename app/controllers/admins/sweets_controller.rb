@@ -1,5 +1,5 @@
 class Admins::SweetsController < ApplicationController
-  
+
 
 	def index
 	  @sweets = Sweet.page(params[:page]).reverse_order

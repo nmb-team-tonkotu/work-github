@@ -17,10 +17,40 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+/* --管理者ログイン-- */
 .admin_page_title{
     background-color: #ddd;
-    width: 180px;
-    padding: 20;
-    padding: 3px;
+    display: inline-block;
+    padding: 3px 20px;
     text-align: center;
 }
+.admin_sessions_title{
+    background-color: #ddd;
+    display: inline-block;
+    padding: 3px 20px;
+    text-align: center;
+    margin-left:180px ;
+    margin-bottom:40px ;
+}
+.admin_sessions_email_form {
+    width :300px;
+    height:40px
+}
+.admin_sessions_password_form {
+    width :300px;
+    height:40px
+}
+.admin_passeord_mg{
+    margin-right: 27px;
+    margin-top: 30px;
+}
+.sessions_btn {
+    margin-top:30px;
+    margin-left: 200px;
+}
+.btn-sm{
+    font-size: 20px;
+
+}
+/* --管理者ログインここまで-- */

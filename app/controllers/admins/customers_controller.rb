@@ -1,4 +1,5 @@
 class Admins::CustomersController < ApplicationController
+    before_action :authenticate_admin!
     before_action :get_customer, only:[:show, :edit, :update]
 
     def top
@@ -14,10 +15,15 @@ class Admins::CustomersController < ApplicationController
     end
 
     def edit
-        if @customer = Customer.update(customer_params)
-            redirect admins_customer_path(@customer)
+
+    end
+
+    def update
+        if @customer.update(customer_params)
+            flash[:notice] = "Updated successfully !!"
+            redirect_to admins_customer_path(@customer)
         else
-            render 'edit'
+            render 'admins/customers/edit'
         end
     end
     

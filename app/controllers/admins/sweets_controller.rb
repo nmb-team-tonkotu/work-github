@@ -1,5 +1,5 @@
 class Admins::SweetsController < ApplicationController
-
+	before_action :authenticate_admin!
 
 	def index
 	  @sweets = Sweet.page(params[:page]).reverse_order

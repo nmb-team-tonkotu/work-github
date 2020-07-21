@@ -20,6 +20,10 @@ class Customer < ApplicationRecord
 
 	def active_for_authentication?
 		super && (self.is_active === "Available")
-	end
+  end
+  
+  def full_name
+    self.family_name + self.first_name
+   end
 
 end

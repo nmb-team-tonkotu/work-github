@@ -1,0 +1,39 @@
+<div class ="body">
+	<div class = "container">
+		<div class ="row">
+			<div class = "col-xs-12" >
+
+                  <div class="col-xs-5">
+                  	<br>
+                  	<br>
+				    <%= attachment_image_tag @sweet, :image, :fill, 200, 150, size: "420x360" %>
+				  </div>
+				   <div class="col-xs-5">
+						<table class="table ditail-table">
+							<br>
+							<br>
+							<tr>
+					            <h3>商品名</h3>
+					             <td><%= @sweet.name %></td>
+					        </tr>
+					        <tr>
+						         <td><%= @sweet.explanation %></td>
+						     </tr>
+						     <tr>
+						         <td><span style= "font-size:40px" >￥<%="#{(@sweet.non_taxed_price * 1.10).round }" %>  </span>(税込)</td>
+						     </tr>
+					     </table>
+					     <%= form_tag(cart_items_path, :method => "post") do %>
+					     <%= number_field_tag :order_sweet_count,min:1,max:10,step:1 %>
+
+					     <%= submit_tag 'カートに入れる', class:"btn btn-primary" %>
+                         <% end %>
+
+
+					     <%= link_to "商品一覧に戻る", sweets_path, class: "btn btn-primary" %>
+				    </div>
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>

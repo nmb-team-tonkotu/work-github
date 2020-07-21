@@ -1,0 +1,32 @@
+<div class ="body">
+	<div class = "container">
+		<div class ="row">
+			<div class = "col-xs-2" >
+				<table>
+					<tr>
+					 <td></td>
+					</tr>
+					<tr>
+					 <td></td>
+					</tr>
+				</table>
+
+			</div>
+		</div>
+		    <div class ="row">
+
+				<h3><span style="font-size:35px">商品一覧  </span>(全<%= @sweets.count %>件)</h3>
+
+				<% @sweets.each do |sweet| %>
+				<div class="col-xs-3">
+
+				 <%= link_to attachment_image_tag(sweet, :image, :fill, 300, 200, size: "260x200"),sweet_path(sweet.id) %>
+				 <p><%= link_to sweet.name,sweet_path(sweet.id) %></p>
+				 <p>￥<%="#{(sweet.non_taxed_price * 1.10).round }" %></p>
+				</div>
+
+				 <% end %>
+			</div>
+		</div>
+	</div>
+</div>

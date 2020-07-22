@@ -17,7 +17,7 @@
             <% end %>
           </li>
           <li role="presentation">
-            <%= link_to cart_items_path do %>
+            <%= link_to cart_items_path(current_customer) do %>
               <button type="button" class="btn btn-success navbar-btn"><h4>カート</h4></button>
             <% end %>
           </li>

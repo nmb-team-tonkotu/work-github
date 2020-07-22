@@ -1,6 +1,9 @@
 class CartItemsController < ApplicationController
+
+	before_action :authenticate_customer!
+
 	def index
-		@cart_items = CartItem.all
+		@cart_items = current_customer.cart_items
 	end
 
 	def create
@@ -11,9 +14,10 @@ class CartItemsController < ApplicationController
 	end
 
 	def update
-		@cart_item = CartItem.find(cart_item_params)
-		@cart_item.update
-		redirect_to redirect_to cart_items_path(current_customer)
+		@cart_item = CartItem.find(params[:id])
+		@cart_item.customer_id = current_customer.id
+		@cart_item.update(cart_item_params)
+		redirect_to cart_items_path(current_customer)
 	end
 
 	def destroy
@@ -31,6 +35,6 @@ class CartItemsController < ApplicationController
 	private
 
 	def cart_item_params
-	params.require(:cart_item).permit(:customer_id, :sweet_id, :sweet_count)
+		params.require(:cart_item).permit(:sweet_id, :sweet_count)
 	end
 end

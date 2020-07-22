@@ -5,6 +5,8 @@
 
 			<div class = "col-md-12">
 				<h2>商品一覧</h2>
+				<p style="text-align:right;"><%= link_to "", new_admins_sweet_path, class: 'glyphicon glyphicon-plus circle' %></p>
+
 
 				<table class ="table table-striped">
 					<thead>
@@ -21,16 +23,16 @@
 						<% @sweets.each do |sweet| %>
 						<tr>
 						     <td><%= sweet.id %></td>
-						     <td><%= sweet.name %></td>
+						     <td><%= link_to sweet.name,admins_sweet_path(sweet.id) %></td>
 						     <td><%= sweet.non_taxed_price %></td>
 						     <td><%= sweet.genre.sweet_genre %></td>
 						     <td><%=sweet.sell_status  ? "販売中" : "販売停止中" %></td>
 						 </tr>
 
 						<%end%>
-						<%= paginate @sweets %>
 					</tbody>
 				</table>
+				<%= paginate @sweets %>
 			</div>
 
 

@@ -3,7 +3,7 @@
 		<div class ="row">
 
 
-				<h3>商品詳細</h3>
+				<h3 class="admin_page_title">商品詳細</h3>
 				<br>
 				<br>
 
@@ -39,8 +39,7 @@
 						         <td><%= @sweet.sell_status ? "販売中" : "販売停止中" %></td>
 						     </tr>
 					     </table>
-					     <%= link_to "編集", edit_admins_sweet_path(@sweet.id), class: "btn btn-primary" %>
-
+					     <p style="text-align:right;"><%= link_to "編集する", edit_admins_sweet_path(@sweet.id), class: "btn btn-primary" %></p>
 
 					 </div>
 

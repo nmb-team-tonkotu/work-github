@@ -1,4 +1,5 @@
 <div class="row">
+
 	<table class="table-bordered col-xs-2">
 		<tr>
 			<th><h3>ジャンル検索</h3></th>
@@ -11,24 +12,10 @@
 	</table>
 
 	<div class="col-xs-10">
-		<div class="top_visual">
-			<div class="top_visual_content">
-				<P class="top_visual_text">ようこそ、NaganoCakeへ!<br>
-					このサイトは、ケーキ販売のECサイトになります。<br>
-					会員でない方も商品の閲覧はできますが、<br>
-					購入に関しては会員登録が必要になります。
-				</P>
-			</div>
-		</div>
-	</div>
-</div>
+		<h1>商品一覧(全<%= @sweets.count %>件)</h1>
 
-<div class="row">
-	<div class="col-xs-2"></div>
-	<div class="col-xs-10">
-		<h1>オススメ商品</h1>
 		<div class="row">
-			<% @sweets.last(4).sort.reverse.each do |sweet| %>
+			<% @sweets.each do |sweet| %>
 				<div class="col-xs-3">
 					<%= link_to sweet_path(sweet.id) do %>
 							<%= attachment_image_tag sweet, :image, :fill, 230, 150, format: "jpeg"%>
@@ -39,4 +26,6 @@
 			<% end %>
 		</div>
 	</div>
+
 </div>
+

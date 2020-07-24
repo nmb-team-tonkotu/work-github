@@ -2,6 +2,7 @@ class Sweet < ApplicationRecord
 	belongs_to :genre
 	has_many :order_sweets
 	has_many :carts
+	has_many :orders
 
   attachment :image
 	validates :sell_status, inclusion: {in: [true, false]}

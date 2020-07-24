@@ -3,7 +3,7 @@ class Admins::CustomersController < ApplicationController
     before_action :get_customer, only:[:show, :edit, :update]
 
     def top
-        @order = Order.where("created_at >= ?", Date.today)
+        @orders = Order.where(created_at: Time.zone.now.all_day)
     end 
 
     def index

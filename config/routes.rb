@@ -35,7 +35,7 @@ Rails.application.routes.draw do
 
 		resources :orders, only:[:index, :show, :update]
 
-		resource :order_sweets, only:[:update]
+		resources :order_sweets, only:[:update]
 
 		resources :sweets, except:[:destroy]
 

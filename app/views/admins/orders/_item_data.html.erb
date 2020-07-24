@@ -1,0 +1,49 @@
+<div class="row item_data">
+    <div class="col-md-7">
+            <table class="table">
+            <thead>
+                <tr class="active">
+                    <th>商品名</th>
+                    <th>単価（税込み）</th>
+                    <th>数量</th>
+                    <th>小計</th>
+                    <th>製作ステータス</th>
+                    <th></th>
+                </tr>
+            </thead>
+        <% totall_price = 0 %>
+            <% order_items.each do |order_item| %>
+                <%= form_for(order_item, url: admins_order_sweet_path(order_item.id)) do |f| %>
+                    <tbody>
+                        <tr>
+                            <td><%= order_item.sweet.name %></td>
+                            <td><%= converting_to_jpy(order_item.price) %></td>
+                            <td><%= order_item.count %></td>
+                            <td><%=  converting_to_jpy(order_item.order_sum)  %></td>
+                            <td class= "form-inline"><%= f.select :create_status, [:着手不可, :製作待ち, :製作中, :製作完了], {} ,{class: 'mgl-20 form-control'} %></td>
+                            <td><%= f.submit '更新', class: "btn btn-primary mgl-20" %></td>
+                        </tr>
+                    </tbody>
+                    <% totall_price += order_item.order_sum %>
+                <% end %>
+            <% end%>
+        </table>
+    </div>
+    <div class="col-md-5 ">
+        <table class="receipt">
+            <tr>
+            <th><%="商品合計"%></th>
+            <th><span class="mgl-20"><%=  converting_to_jpy(totall_price) %></span></th>
+            </tr>
+            <tr>
+            <th><%="送料"%></th>
+            <th><span class="mgl-20"><%= converting_to_jpy(@order.postage) %></span></th>
+            </tr>
+            <tr>
+            <th><%="請求額合計"%></th>
+            <th><span class="mgl-20"><%= converting_to_jpy(@order.billing_amount) %></span></th>
+            </tr>
+        </table>
+    <div>
+</div>
+

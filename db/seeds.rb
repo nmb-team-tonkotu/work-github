@@ -12,7 +12,7 @@ Admin.create!(
     password_confirmation: "000000"
 )
 
-10.times do |n|
+11.times do |n|
     Customer.create!(
         family_name: "山田",
         first_name: "太郎#{n+1}",
@@ -26,12 +26,40 @@ Admin.create!(
     )
   end
 
+11.times do |n|
   Order.create!(
-    customer_id: "1",
-    customer_name: "山田太郎",
-    postal_code: "12312341231",
+    customer_id: "#{n+1}",
+    customer_name: "山田太郎#{n+1}",
+    postal_code: "1231234123#{n+1}",
     address: "大阪",
-    postage: "1231234",
+    postage: "800",
     payment_method: "クレジット",
-    billing_amount: "1000"
+    billing_amount: "4100"
   )
+end
+
+
+5.times do |n|
+Genre.create!(
+  sweet_genre: "ケーキ#{n+1}"
+)
+end
+
+5.times do |n|
+  Sweet.create!(
+    name: "いちごのショート#{n+1}",
+    explanation: "おいしいケーキ",
+    non_taxed_price: "300",
+    image_id: "1",
+    genre_id: "#{n+1}"
+  )
+end
+
+5.times do |n|
+  OrderSweet.create!(
+    sweet_id: "#{n+1}",
+    order_id: "1",
+    price: "330",
+    count: "2"
+  )
+end

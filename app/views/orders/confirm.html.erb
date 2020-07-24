@@ -1,0 +1,29 @@
+<div class= "body">
+	<div class = "container">
+		<div class = "col_xs_10">
+			<table>
+				<thead>
+					<tr>
+						<th>商品名</th>
+						<th>単価(税込)</th>
+						<th>数量</th>
+						<th>小計</th>
+					</tr>
+				</thead>
+					<tbody>
+							<tr>
+
+							</tr>
+					</tbody>
+			</table>
+		    <h3>支払い方法</h3>
+		     <%= @order.payment_method %>
+		     <%= @orders %>
+
+		    <h3>お届け先</h3>
+		    <%= @order.postal_code %>
+		    <%= @order.address %>
+          <hi><%=@order.customer_name%></h1>
+        </div>
+	</div>
+</div>

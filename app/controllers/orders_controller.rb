@@ -9,26 +9,35 @@ class OrdersController < ApplicationController
     def  confirm
     	@cart_items = CartItem.where(customer_id: current_customer.id)
       @order = Order.new(order_params)
+      @addresses = Address.where(customer_id: current_customer.id)
+
 
 
       	if params[:address_option] == "0"
 
-      	 @order.customer = current_customer
-         @order.customer_name = current_customer.first_name +  current_customer.family_name
-      	 @order.postal_code = current_customer.postal_code
-      	 @order.address = current_customer.address
-      elsif params[:address_option] == "1"
+      	   @order.customer = current_customer
+           @order.customer_name = current_customer.first_name +  current_customer.family_name
+      	   @order.postal_code = current_customer.postal_code
+      	   @order.address = current_customer.address
+        elsif params[:address_option] == "1"
+           @address = Address.find(params[:order][:current_customer_address].to_i)
+           @order.address = @address.address
+           @order.postal_code = @address.postal_code
+           @order.customer_name = @address.name
+        else params[:address_option] == "2"
+            @order.customer_name = current_customer.first_name +  current_customer.family_name
+	      end
 
-      	 @order = Order.new(order_params)
+        @order.postage = 800
 
-      else params[:address_option] == "2"
-	   end
-    end
 
+
+     end
 
 
     def  create
-        @order = Order.new(order_params)
+
+      @order = Order.new(order_params)
 	    @order.save
 	    rediect_to orders_thanks_path
     end
@@ -37,10 +46,12 @@ class OrdersController < ApplicationController
     end
 
     def  show
+      @order = Order.find(params[:id])
 
     end
 
      def index
+      @orders = Order.all
 	 end
 
 
@@ -55,6 +66,7 @@ class OrdersController < ApplicationController
 			:postage,
 			:payment_method,
 			:billing_amount,
-			:status)
+			:status
+      )
 	end
 end

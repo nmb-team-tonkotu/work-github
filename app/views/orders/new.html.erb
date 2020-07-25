@@ -17,7 +17,7 @@
 		        <p> <%= current_customer.postal_code + current_customer.address + current_customer.family_name + current_customer.first_name %></p>
 
 		        <p><%= radio_button_tag :address_option, 1 %>登録済住所から選択</p>
-		            <%= f.collection_select :name, @addresses,:id, :second_address %>
+		            <%= f.collection_select :current_customer_address, @addresses,:id, :second_address %>
 
 		        <p><%= radio_button_tag :address_option, 2 %>新しいお届け先</p>
 

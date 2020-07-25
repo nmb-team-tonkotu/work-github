@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
            @address = Address.find(params[:order][:current_customer_address].to_i)
            @order.address = @address.address
            @order.postal_code = @address.postal_code
-           @order.customer_name = @address.name
+           @order.address_name = @address.name
         else params[:address_option] == "2"
             @order.customer_name = current_customer.first_name +  current_customer.family_name
 	      end
@@ -40,6 +40,14 @@ class OrdersController < ApplicationController
       @order = Order.new(order_params)
 	    @order.save
 	    rediect_to orders_thanks_path
+        if @order.save
+          @cart_items = CartItem.where(customer_id: current_customer.id)
+          @cart_items.destroy_all
+          redirect_to orders_thanks_path
+        else
+        @cart_items = CartItem.where(customer_id: current_customer.id)
+        render ("orders/confirm")
+        end
     end
 
     def thanks

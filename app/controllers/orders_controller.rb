@@ -33,6 +33,16 @@ class OrdersController < ApplicationController
 	    @order = Order.new(order_params)
 	    if @order.save
 		    @cart_items = CartItem.where(customer_id: current_customer.id)
+		    @cart_items.each do |cart_item|
+
+		    	@order_sweet = OrderSweet.new
+		    	@order_sweet.order_id = @order.id
+		    	@order_sweet.count = cart_item.sweet_count
+		    	@order_sweet.price = "#{(cart_item.sweet.non_taxed_price*1.1).round}"
+		    	@order_sweet.sweet_id = cart_item.sweet.id
+		    	binding.pry
+		    	@order_sweet.save
+		    end
 		    @cart_items.destroy_all
 		    redirect_to orders_thanks_path
 		else
@@ -42,6 +52,15 @@ class OrdersController < ApplicationController
 	end
 
 	def thanks
+	end
+
+	def index
+		@orders = current_customer.orders
+	end
+
+	def show
+		@order = Order.find(params[:id])
+		@order_sweet = @order.order_sweets
 	end
 
 

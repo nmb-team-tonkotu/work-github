@@ -7,4 +7,5 @@ class Order < ApplicationRecord
 	enum payment_method: [:クレジット, :銀行支払]
 
 
+
 end

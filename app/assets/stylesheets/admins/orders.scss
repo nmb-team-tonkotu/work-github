@@ -1,3 +1,51 @@
 // Place all the styles related to the admins::orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*-- admin_order_index */
+.admin_order_table{
+
+    margin-top: 50px;
+}
+
+.order_link{
+    color:#000;
+    text-decoration: underline;
+}
+
+
+/*-- admin_order_show */
+.receipt {
+    margin-top: 150px;
+    font-size: 16px;
+    margin-left: 60px;
+    line-height: 2.5;
+    font-weight:  bold;
+}
+
+.item_data{
+ margin-top: 100px;
+ 
+}
+
+.mgl-20{
+    margin-left: 20px;
+}
+
+.mgl-65{
+    margin-left: 65px;
+}
+
+.mgb-10{
+    margin-bottom: 10px;
+}
+
+.tdw{
+    margin-bottom: 10px;
+    border-bottom: 1.5px solid rgb(167, 167, 167) ;
+    height:  40px;
+    padding-top: 10px;
+    font-weight:  bold;
+    background: #ddd;
+}
+/*-- ここまで --*/

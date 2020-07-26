@@ -1,0 +1,42 @@
+<div class="row item_data">
+    <div class="col-md-8">
+                <div class="row bd tdw">
+                    <div class="col-md-3">商品名</div>
+                    <div class="col-md-2">単価（税込）</div>
+                    <div class="col-md-2">数量</div>
+                    <div class="col-md-1">小計</div>
+                    <div class="col-md-2 col-md-offset-1 mgl-65">製作ステータス</div>
+                </div>
+        <% totall_price = 0 %>
+        <% order_items.each do |order_item| %>
+            <%= form_for(order_item, url: admins_order_sweet_path(order_item.id)) do |f| %>
+                    <div class="row  bdt">
+                        <div class="col-md-3"><%= order_item.sweet.name %></div>
+                        <div class="col-md-2"><%= converting_to_jpy(order_item.price) %></div>
+                        <div class="col-md-2"><%= order_item.count %></div>
+                        <div class="col-md-2"><%=  converting_to_jpy(order_item.order_sum)  %></div>
+                        <div class="col-md-2"><%= f.select :create_status, {"着手不可": 0, "製作待ち": 1, "製作中": 2, "製作完了": 3}, {} ,{class:  'mgb-10 form-control'} %></div>
+                        <div class="col-md-1"><%= f.submit '更新', class: "btn btn-primary" %></div>
+                    </div>
+                <% totall_price += order_item.order_sum %>
+            <% end %>
+        <% end%>
+    </div>
+    <div class="col-md-4">
+        <div class="receipt">
+            <div class="row">
+            <div class="col-md-4"><%="商品合計"%></div>
+            <div class="col-md-4"><span class="mgl-20"><%=  converting_to_jpy(totall_price) %></span></div>
+            </div>
+            <div class="row">
+            <div class="col-md-4"><%="送料"%></div>
+            <div class="col-md-4"><span class="mgl-20"><%= converting_to_jpy(@order.postage) %></span></div>
+            </div>
+            <div class="row">
+            <div class="col-md-4"><%="請求額合計"%></div>
+            <div class="col-md-4"><span class="mgl-20"><%= converting_to_jpy(@order.billing_amount) %></span></div>
+            </div>
+        </div>
+    <div>
+</div>
+

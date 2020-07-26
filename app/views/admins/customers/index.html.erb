@@ -1,9 +1,9 @@
-<h3 class="admin_page_title">会員一覧</h3>
 <div class="row">
     <div class='col-md-offset-2 col-md-7'>
-        <table class="admin_customers_table table">
+    <h3 class="admin_page_title">会員一覧</h3>
+        <table class="table admin_customers_table table">
             <thead>
-                <tr>
+                <tr class="active">
                 <th>会員ID</th>
                 <th>指名</th>
                 <th>メールアドレス</th>
@@ -23,9 +23,9 @@
                         <%end%>
                     </tr>
                 <%  end %>
-                <%= paginate @customers %>
             </tbody>
         </table>
+                <%= paginate @customers %>
     </div>
 </div>
 

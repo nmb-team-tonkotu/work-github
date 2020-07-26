@@ -1,0 +1,32 @@
+<div class="row">
+　<div class="col-md-12" >
+<h3 class="admin_page_title">注文履歴詳細</h3>
+    <%= form_for @order, url: { controller: "admins/orders", action: "update"} do |f| %>
+        <table class="admin_customer_table">
+            <tr>
+                <th>購入者</th>
+                <th><span class="mgl-20"><%= link_to @order.customer_name, admins_customer_path(@order.customer.id),class: "order_link" %></span> </th>
+            </tr>
+            <tr>
+                <th>配送先</th>
+                <th><span class="mgl-20"><%= @order.address %></span></th>
+            </tr>
+            <tr>
+                <th>宛名</th>
+                <th><span class="mgl-20"><%= "@order.address_name" %></span></th>
+            </tr>
+            <tr>
+                <th>支払方法</th>
+                <th><span class="mgl-20"><%= @order.payment_method %></span></th>
+            </tr>
+            <tr>
+                <th>注文ステータス</th>
+                <th class="form-inline"><%= f.select :status, [ :入金待ち, :入金確認, :製作中, :発送準備中, :発送済み], {},{class: 'mgl-20 form-control'} %></th>
+                <th class="mgl-20"><%= f.submit '更新', class: "btn btn-primary mgl-20" %></th>
+            </tr>
+        </table>
+    <% end %>
+    </div>
+</div>
+
+ <%= render 'admins/orders/item_data', order_items: @order.order_sweets %>

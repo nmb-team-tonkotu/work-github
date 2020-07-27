@@ -66,6 +66,46 @@
 }
 /*-- ここまで　--*/
 
+<<<<<<< HEAD
+
+/* --新規登録画面-- */
+.new_registraiton_btn {
+  width: 300px;
+  height: 50px;
+  border: solid 1px;
+}
+
+
+.registration_table tbody tr td {
+    border-top: none;
+}
+
+.already_registration {
+    padding-top: 25px;
+}
+/*-- 新規登録画面ここまで　--*/
+
+/* --ジャンル検索画面(render)-- */
+.genre_table tbody tr td {
+    border: none;
+}
+/*-- -ジャンル検索画面(render)ここまで　--*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======
 /*-- cutomer_login--*/
 .mgr-20{
     margin: 20px;
@@ -93,3 +133,4 @@
     }
 
 /*-- ままで　--*/
+>>>>>>> develop

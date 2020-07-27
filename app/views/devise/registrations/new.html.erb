@@ -1,9 +1,10 @@
 
 
 <div class="row">
+  <div class="col-xs-2"></div>
   <div class="col-xs-8">
 
-    <h4>新規会員登録</h4>
+    <h4 class="new_registraiton">新規会員登録</h4>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
@@ -14,22 +15,18 @@
           <tr>
             <td>名前</td>
             <td>
-              <supan>(姓)　&nbsp;</supan>
-              <%= f.text_field :family_name, autofocus: true, autocomplete: "family_name" %>
-            </td>
-            <td>
-              <supan>(名)　&nbsp;</supan>
-              <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+              <supan> (姓)　&nbsp;</supan>
+              <%= f.text_field :family_name, autofocus: true, autocomplete: "family_name", class: 'form-inline' %>
+              <supan>　(名)　&nbsp;</supan>
+              <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: 'form-inline' %>
             </td>
           </tr>
           <tr>
             <td>フリガナ</td>
             <td>
-              <supan>(セイ)&nbsp;</supan>
+              <supan> (セイ)&nbsp;</supan>
               <%= f.text_field :kana_family_name, autofocus: true, autocomplete: "kana_family_name" %>
-            </td>
-            <td>
-              <supan>(メイ)&nbsp;</supan>
+              <supan>　(メイ)&nbsp;</supan>
               <%= f.text_field :kana_first_name, autofocus: true, autocomplete: "kana_first_name" %>
             </td>
           </tr>
@@ -51,8 +48,8 @@
             <td>住所</td>
             <td>
               <supan>　　&nbsp;&nbsp;&nbsp;</supan>
-              <%= f.text_field :address, autofocus: true, autocomplete: ":address" %>
-            </td>
+              <%= f.text_field :address, autofocus: true, autocomplete: ":address", style: "width:365px;" %>
+            </td></tr>
           </tr>
           <tr>
             <td>電話番号(ハイフンなし)</td>
@@ -61,11 +58,6 @@
               <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
             </td>
           </tr>
-
-
-
-
-
           <tr>
             <% if @minimum_password_length %>
               <td>パスワード(<%= @minimum_password_length %>文字以上)</td>
@@ -73,22 +65,8 @@
                 <supan>　　&nbsp;&nbsp;&nbsp;</supan>
                 <%= f.password_field :password, autocomplete: "new-password" %>
               </td>
-            <% end %><br />
+            <% end %><br/>
           </tr>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
           <tr>
             <td>パスワード(確認用)</td>
             <td>
@@ -98,12 +76,12 @@
           </tr>
         </tbody>
       </table>
-      <div class="actions">
-          <%= f.submit "新規登録", class: 'btn btn-success' %>
+      <div>
+          <%= f.submit "新規登録", class: 'btn-lg btn-success center-block new_registraiton_btn' %>
       </div>
     <% end %>
 
-    <div>
+    <div class="already_registration">
       <h4>既に登録済の方</h4>
     </div>
 
@@ -111,7 +89,7 @@
 
   </div>
 </div>
-
+<div class="col-xs-2"></div>
 
 
 

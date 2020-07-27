@@ -1,21 +1,11 @@
 <div class ="row">
-	<table class="table-bordered col-xs-2">
-		<tr>
-			<th><h3>ジャンル検索</h3></th>
-		</tr>
-		<% @genres.each do |genre| %>
-			<tr>
-				<td><%= link_to genre.sweet_genre, sweets_path(search_id: genre.id)%></td>
-			</tr>
-		<% end %>
-	</table>
+
+    <%= render 'homes/genre', genres: @genres %>
 
 	<div class="col-xs-1">
 	</div>
 
     <div class="col-xs-5">
-      	<br>
-      	<br>
 	    <%= attachment_image_tag @sweet, :image, :fill, 200, 150, size: "350x300" %>
 	</div>
 
@@ -32,10 +22,9 @@
 
 		    <%= f.number_field :sweet_count, min:1, max:10, step:1, :required => true %>
 		    <%= f.hidden_field :sweet_id, value: @sweet.id %>
-		    <%= f.submit 'カートに入れる', class:"btn btn-primary" %>
+		    <%= f.submit 'カートに入れる', class:"btn btn-primary", style: "margin-left: 5px;" %>
         <% end %>
 
-		<%= link_to "商品一覧に戻る", sweets_path, class: "btn btn-primary" %>
 
 	</div>
 </div>

@@ -40,7 +40,6 @@ class OrdersController < ApplicationController
 		    	@order_sweet.count = cart_item.sweet_count
 		    	@order_sweet.price = "#{(cart_item.sweet.non_taxed_price*1.1).round}"
 		    	@order_sweet.sweet_id = cart_item.sweet.id
-
 		    	@order_sweet.save
 		    end
 		    @cart_items.destroy_all
@@ -55,7 +54,7 @@ class OrdersController < ApplicationController
 	end
 
 	def index
-		@orders = current_customer.orders
+		@orders = current_customer.orders.page(params[:page]).reverse_order
 	end
 
 	def show

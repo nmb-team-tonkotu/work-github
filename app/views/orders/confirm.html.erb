@@ -58,14 +58,22 @@
 	</div>
 </div>
 
-<h3>支払い方法</h3>
-	<%= @order.payment_method %>
-
-<h3>お届け先</h3>
-	<%= @order.postal_code %>
-	<%= @order.address %>
-	<%= @order.address_name %>
-
+<div class="row">
+		<table style= "font-size:120%">
+          <tr>
+            <th class="col-xs-4">お支払い方法</th>
+            <td class="col-xs-8"><%= @order.payment_method %></td>
+          </tr>
+          <br>
+          <tr>
+            <th class="col-xs-4">お届け先</th>
+            <td class="col-xs-8"><br>
+              <%= @order.postal_code %><%= @order.address %><br>
+              <%= @order.address_name %>
+            </td>
+          </tr>
+    </table>
+</div>
 
 <%= form_for @order do |f|%>
 
@@ -78,6 +86,6 @@
 	<%= f.hidden_field :payment_method, value: @order.payment_method %>
 	<%= f.hidden_field :address_name, value: @order.address_name %>
 
-	<%= f.submit "購入を確定する", class:"btn btn-success" %>
+ <p style="margin-left:500px" ><%= f.submit "購入を確定する", class:"btn btn-success", style: "width: 30%;" %></p>
 <% end %>
 

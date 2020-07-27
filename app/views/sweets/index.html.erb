@@ -3,7 +3,7 @@
 	<%= render 'homes/genre', genres: @genres %>
 
 	<div class="col-xs-10">
-		<h1>商品一覧(全<%= @sweets.count %>件)</h1>
+		<h1 style="margin-top: 0;">商品一覧(全<%= @sweets.count %>件)</h1>
 
 		<div class="row">
 			<% @sweets.each do |sweet| %>

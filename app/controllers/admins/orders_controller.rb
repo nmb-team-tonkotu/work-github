@@ -12,7 +12,8 @@ class Admins::OrdersController < ApplicationController
 
     def update
         @order.update(order_params)
-        redirect_to admins_orders_path
+        flash[:notice] = "Created successfully !!"
+        redirect_to admins_order_path(@order)
     end
 
     private

@@ -18,6 +18,7 @@
 @import "bootstrap";
 
 
+
 /* --管理者ログイン-- */
 .admin_page_title{
     background-color: #ddd;
@@ -65,6 +66,7 @@
 }
 /*-- ここまで　--*/
 
+<<<<<<< HEAD
 
 /* --新規登録画面-- */
 .new_registraiton_btn {
@@ -103,3 +105,32 @@
 
 
 
+=======
+/*-- cutomer_login--*/
+.mgr-20{
+    margin: 20px;
+}
+.mgl-50{
+    margin-left: 50%;
+}
+.mgl-10{
+    margin-left: 10%;
+}
+.mgl-btn{
+    margin-left: 15%;
+    margin-bottom: 10px;
+}
+.customer_login_title{
+    background-color: #ddd;
+    display: inline-block;
+    padding: 3px 20px;
+    text-align: center;
+    margin-bottom:40px
+}
+
+.mgb-10 {
+    margin-bottom: 10px
+    }
+
+/*-- ままで　--*/
+>>>>>>> develop

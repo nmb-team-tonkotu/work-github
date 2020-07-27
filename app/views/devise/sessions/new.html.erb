@@ -1,11 +1,11 @@
 <div class="row">
-  <div class="col-xs-8">
+      <div class="col-6 col-md-offset-3">
 
-    <h4>会員の方はこちらからログイン</h4>
+    <h4 class="customer_login_title" >会員の方はこちらからログイン</h4>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-    <table class="table session_table">
+    <!-- <table class="table session_table">
       <tbody>
         <tr>
           <td>メールアドレス</td>
@@ -16,22 +16,35 @@
           <td><%= f.password_field :password, autocomplete: "current-password" %></td>
         </tr>
       </tbody>
-    </table>
+    </table> -->
+
+      <div class="col-12">
+        <div class="form-inline">
+          <%= f.label :メールアドレス %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" , class: "form-control mgl-20", style: "width: 500px "%>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-inline">
+          <%= f.label :パスワード ,class: "admin_passeord_mg"%>
+          <%= f.password_field :password, autocomplete: "current-password", class:"form-control mgl-20 mgb-20" , style: "width: 500px "%>
+        </div>
+      </div>
 
 
     <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-      <%= link_to "=>パスワードを忘れた方はこちら", new_password_path(resource_name) %><br />
+      <%= link_to "=>パスワードを忘れた方はこちら", new_password_path(resource_name),class: "mgl-50" %><br />
     <% end %>
 
 
 
 
       <div class="actions">
-        <%= f.submit "ログイン", class: 'btn btn-primary' %>
+        <%= f.submit "ログイン", class: 'btn btn-primary mgl-btn ',style: "width: 150px" %>
       </div>
     <% end %>
 
-    <h4>会員の方はこちらからログイン</h4>
+    <h4 class="customer_login_title">登録がお済みでない方</h4></br>
 
     <%= render "devise/shared/links" %>
 

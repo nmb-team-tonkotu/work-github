@@ -40,7 +40,7 @@ class OrdersController < ApplicationController
 		    	@order_sweet.count = cart_item.sweet_count
 		    	@order_sweet.price = "#{(cart_item.sweet.non_taxed_price*1.1).round}"
 		    	@order_sweet.sweet_id = cart_item.sweet.id
-		    	binding.pry
+
 		    	@order_sweet.save
 		    end
 		    @cart_items.destroy_all

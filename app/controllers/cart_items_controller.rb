@@ -1,5 +1,4 @@
 class CartItemsController < ApplicationController
-
 	before_action :authenticate_customer!
 
 	def index
@@ -9,8 +8,22 @@ class CartItemsController < ApplicationController
 	def create
 		@cart_item = CartItem.new(cart_item_params)
 		@cart_item.customer_id = current_customer.id
-		@cart_item.save
-		redirect_to cart_items_path(current_customer)
+
+		customer_cart_items = CartItem.where(customer_id: current_customer.id)
+		alreadry_customer_cart_item = customer_cart_items.find_by(sweet_id: @cart_item.sweet_id)
+
+		if alreadry_customer_cart_item.nil?
+			if @cart_item.save
+				redirect_to cart_items_path(current_customer)
+			else
+				@sweet = Sweet.find(params[:cart_item][:sweet_id])
+				render ("sweets/show")
+			end
+		else
+			alreadry_customer_cart_item.sweet_count += params[:cart_item][:sweet_count].to_i
+			alreadry_customer_cart_item.save
+			redirect_to cart_items_path(current_customer)
+		end
 	end
 
 	def update

@@ -33,15 +33,15 @@
 			<tbody>
 				<tr>
 					<th class="active">商品合計</th>
-					<td><%= @order.billing_amount - @order.postage %>円</td>
+					<td><%= converting_to_jpy(@order.billing_amount - @order.postage) %></td>
 				</tr>
 				<tr>
 					<th class="active">配送料</th>
-					<td><%= @order.postage %>円</td>
+					<td><%= converting_to_jpy(@order.postage)%></td>
 				</tr>
 				<tr>
 					<th class="active">ご請求額</th>
-					<td><%= @order.billing_amount %>円</td>
+					<td><%= converting_to_jpy(@order.billing_amount) %></td>
 				</tr>
 			</tbody>
 		</table>
@@ -64,9 +64,9 @@
 					<% @order.order_sweets.each do |order_sweet| %>
 					<tr>
 						<td><%= order_sweet.sweet.name %></td>
-						<td><%= order_sweet.price %>円</td>
+						<td><%= converting_to_jpy(order_sweet.price) %></td>
 						<td><%= order_sweet.count %></td>
-						<td><%= order_sweet.count*order_sweet.price %>円</td>
+						<td><%= converting_to_jpy(order_sweet.count*order_sweet.price) %></td>
 					</tr>
 					<% end %>
 				</tbody>

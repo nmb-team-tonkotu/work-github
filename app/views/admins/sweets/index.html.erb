@@ -5,9 +5,11 @@
 
 			<div class = "col-md-12">
 				<h3 class="admin_page_title">商品一覧</h3>
-				<p style="text-align:right;"><%= link_to "", new_admins_sweet_path, class: 'glyphicon glyphicon-plus circle' %></p>
-
-
+				<p style="text-align:right;">
+					<%= link_to  new_admins_sweet_path do %>
+						<i class="fa fa-plus-circle fa-3x fa-bule"></i>
+					<% end %>
+				</p>
 				<table class ="table">
 					<thead>
 

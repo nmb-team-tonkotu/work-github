@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
 	before_action :authenticate_customer!
+	before_action :check_cart_item, only:[:new, :confirm]
 
 	def  new
 	    @order = Order.new
@@ -78,4 +79,14 @@ class OrdersController < ApplicationController
 			:address_name
 		)
 	end
+
+	def check_cart_item
+		cart_items = current_customer.cart_items
+
+		if cart_items.blank?
+			flash[:notice] = "カートに商品を追加してください"
+			redirect_to sweets_path
+		end
+	end
+
 end

@@ -22,13 +22,13 @@
 						<%= cart_item.sweet.name %>
 					</td>
 					<td>
-						<%= "#{(cart_item.sweet.non_taxed_price * 1.10).round }" %>
+						<%= customer_converting_to_jpy(cart_item.sweet.non_taxed_price * 1.10) %>
 					</td>
 					<td>
 						<%= cart_item.sweet_count %>
 					</td>
 					<td>
-						<%= "#{(cart_item.sweet.non_taxed_price*cart_item.sweet_count* 1.10).round }"%>
+						<%= customer_converting_to_jpy(cart_item.sweet.non_taxed_price*cart_item.sweet_count* 1.10) %>
 					</td>
 				</tr>
 				<% @sum += cart_item.sweet.non_taxed_price*cart_item.sweet_count %>
@@ -47,12 +47,12 @@
 			</tr>
 			<tr>
 				<th class="active">商品合計</th>
-				<th><%= @sum.round %></th>
+				<th><%= customer_converting_to_jpy(@sum)%></th>
 			</tr>
 			<tr>
 				<th class="active">請求金額</th>
 				<% @sum += @order.postage %>
-				<th><%= @sum.round %></th>
+				<th><%= customer_converting_to_jpy(@sum) %></th>
 			</tr>
 		</table>
 	</div>

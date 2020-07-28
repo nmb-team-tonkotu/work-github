@@ -4,7 +4,10 @@
       <%= link_to root_path do %>
         <%= image_tag 'nagano_cake.png', size: "200x100" %>
       <% end %>
+      <span style="padding-left: 100px;">ようこそ、<%= current_customer.kana_first_name %>さん！</span>
     </div>
+
+
 
       <ul class="nav navbar-nav navbar-right nav-pills">
         <% if customer_signed_in? %>

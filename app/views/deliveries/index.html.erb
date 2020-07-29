@@ -1,0 +1,31 @@
+
+<h3 class="deliveries_page_title">配送先登録 / 一覧</h3>
+<div class="row">
+	<%= render "deliveries/delivery_form", delivery: @delivery %>
+</div>
+
+<div class="row">
+	<div class="col-xs-8">
+		<table class="table table-bordered mgt">
+			<thead>
+				<tr class="active">
+					<th>郵便番号</th>
+					<th>住所</th>
+					<th>宛名</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @deliveries.each do |delivery| %>
+					<tr>
+						<td><%= delivery.postal_code %></td>
+						<td><%= delivery.address %></td>
+						<td><%= delivery.name %></td>
+						<th><%= link_to "編集する", edit_delivery_path(delivery.id), class:"btn btn-primary mgl-10 " %>
+						<%= link_to "削除する", delivery_path(delivery.id), method: :delete, data: { confirm: '本当に消しますか？' }, class:"btn btn-danger mgl-10 " %></th>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>

@@ -1,3 +1,64 @@
 // Place all the styles related to the admins::customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* --admin_top index --*/
+.oder_count,
+.admin_customers_table {
+    margin-top: 100px;
+}
+.customer_link{
+    color:#000;
+    text-decoration: underline;
+}
+/* -- ここまで --*/
+
+/* --admin_show --*/
+.admin_customer_table  {
+    margin-top: 50px;
+    line-height: 3;
+}
+.link-wrapper{
+    margin-top: 20px;
+}
+.orders-link{
+    margin-left: 10px;
+}
+.Available{
+    background-color: #97cdf3;
+    border: 1px solid #000;
+    padding: 5px;
+    border-radius: 5px;
+    color: #000 ;
+    margin-left: 20px;
+}
+.Invalid{
+    background-color: #f7c6db;
+    border: 1px solid #000;
+    padding: 5px;
+    border-radius: 5px;
+    color: #000 ;
+    margin-left: 20px;
+}
+/* -- ここまで --*/
+
+/* --admin_edit --*/
+.admin_edit_form{
+    text-align: center;
+    margin-top: 50px;
+    line-height: 4;
+    margin-left: 10px;
+}
+
+input{
+    text-align: center;
+}
+/* -- ここまで --*/
+
+/* --admin_show edit margin --*/
+.mgl-20{
+    margin-left: 20px;
+}
+/* -- ここまで --*/
+

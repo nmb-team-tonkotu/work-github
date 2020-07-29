@@ -1,0 +1,30 @@
+<div class ="row">
+
+    <%= render 'homes/genre', genres: @genres %>
+
+	<div class="col-xs-1">
+	</div>
+
+    <div class="col-xs-5">
+	    <%= attachment_image_tag @sweet, :image, :fill, 200, 150, size: "350x300" %>
+	</div>
+
+	<div class="col-xs-4">
+		<br>
+		<br>
+        <h1><%= @sweet.name %></h1>
+		<p><%= @sweet.explanation %></p>
+	    <span style= "font-size:30px" >￥<%="#{(@sweet.non_taxed_price * 1.10).round }" %>  </span><span>(税込)</span>
+
+		<%= form_with(model: @cart_item, url: cart_items_path, method: "post", local: true) do |f|%>
+
+		    <%= render 'layouts/errors', obj: f.object %>
+
+		    <%= f.number_field :sweet_count, min:1, max:10, step:1, :required => true %>
+		    <%= f.hidden_field :sweet_id, value: @sweet.id %>
+		    <%= f.submit 'カートに入れる', class:"btn btn-primary", style: "margin-left: 5px;" %>
+        <% end %>
+
+
+	</div>
+</div>

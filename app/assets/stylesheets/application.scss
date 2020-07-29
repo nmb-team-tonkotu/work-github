@@ -16,3 +16,141 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+
+a {
+    color: black;
+}
+
+/* --管理者ログイン-- */
+.admin_page_title{
+    background-color: #ddd;
+    display: inline-block;
+    padding: 3px 20px;
+    text-align: center;
+}
+.admin_sessions_title{
+    background-color: #ddd;
+    display: inline-block;
+    padding: 3px 20px;
+    text-align: center;
+    margin-left:180px ;
+    margin-bottom:40px ;
+}
+.admin_sessions_email_form {
+    width :300px;
+    height:40px
+}
+.admin_sessions_password_form {
+    width :300px;
+    height:40px
+}
+.admin_passeord_mg{
+    margin-right: 27px;
+    margin-top: 30px;
+}
+.sessions_btn {
+    margin-top:30px;
+    margin-left: 200px;
+}
+.btn-sm{
+    font-size: 20px;
+
+}
+/* --管理者ログインここまで-- */
+
+
+
+/*-- kaminari --*/
+.current{
+    margin: 0 auto;
+    opacity:0.5 ;
+}
+.pagination {
+    margin-left: 40%;
+}
+/*-- ここまで　--*/
+
+
+
+/* --新規登録画面-- */
+
+.new_registraiton {
+  background-color: #ddd;
+  width: 120px;
+  height: 100%;
+}
+
+.new_registraiton_btn {
+  width: 300px;
+  height: 50px;
+  border: solid 1px;
+}
+
+.registration_table tbody tr td {
+    border-top: none;
+}
+
+.already_registration {
+    margin-top: 25px;
+    background-color: #ddd;
+    width: 140px;
+}
+/*-- 新規登録画面ここまで　--*/
+
+
+
+/* --ジャンル検索画面(render)-- */
+.genre_table tbody tr td {
+    border: none;
+}
+/*-- -ジャンル検索画面(render)ここまで　--*/
+
+
+
+/*-- cutomer_login--*/
+.mgr-20{
+    margin: 20px;
+}
+.mgl-50{
+    margin-left: 50%;
+}
+.mgl-10{
+    margin-left: 10%;
+}
+.mgl-btn{
+    margin-left: 15%;
+    margin-bottom: 10px;
+}
+.customer_login_title{
+    background-color: #ddd;
+    display: inline-block;
+    padding: 3px 20px;
+    text-align: center;
+    margin-bottom:40px
+}
+
+.mgb-10 {
+    margin-bottom: 10px
+    }
+/*-- ままで　--*/
+.image1 {
+    background-image: url(image1.jpg);
+  }
+  .image2 {
+    background-image: url(image2.jpg);
+  }
+  .image3 {
+    background-image: url(image3.jpg);
+  }
+  .image4 {
+    background-image: url(image4.jpg);
+  }
+  .image5 {
+    background-image: url(image5.jpg);
+  }
+  #container{
+    height: 300px;
+    width:500px;
+  }

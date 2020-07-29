@@ -1,0 +1,47 @@
+<div class = "row">
+	<div class = "col-xs-10">
+		<h3 class="order_page_title" style="margin-left:15%">注文情報入力</h3>
+			<div style="margin-left:5%">
+		         <%= form_with(model: @order, url: orders_confirm_path, method: :post, local: true) do |f|%>
+
+		   		<h4><strong>支払方法</strong></h4>
+		    	<div class = “payment”>
+                   <P style="margin-left:5%"><%= f.radio_button :payment_method, "クレジットカード", checked: true %>
+                   <%= f.label :payment_method, "クレジットカード" %></P>
+                   <p  style="margin-left:5%"><%= f.radio_button :payment_method, "銀行振込"  %>
+                   <%= f.label :payment_method, "銀行振込" %></p>
+		    	</div>
+
+		   		<h4><strong>お届け先</strong></h4>
+		    	<div class = “delivery”>
+		        	<p style="margin-left:5%"><%= radio_button_tag :address_option, 0, checked: true %>ご自身の住所</p>
+		        	<p style="margin-left:10%">
+		        		〒<%= current_customer.postal_code %><%= current_customer.address %><br>
+		        		<%= current_customer.family_name + current_customer.first_name %></p>
+
+		        	<p style="margin-left:5%">
+		        	<%= radio_button_tag :address_option, 1, style: "width: 50%;" %>登録済住所から選択</p>
+		        	<p style="margin-left:10%">
+		            <%= f.collection_select :current_customer_address, @addresses,:id, :second_address, style: "withe: 50%"%></p>
+
+		        	<p  style="margin-left:5%"><%= radio_button_tag :address_option, 2 %>新しいお届け先</p>
+
+		       	<div style="margin-left:10%">
+			       	<%= f.label :"郵便番号(ハイフンなし)" %>
+			        <%= f.text_field :postal_code, style: "width: 20%;"%>
+			    </div>
+		        <div style="margin-left:10%">
+			      	<%= f.label :住所%>
+			      	<span style="margin-left:14.7%"><%= f.text_field :address, style: "width: 50%;" %></span>
+		        </div>
+		        <div style="margin-left:10%">
+		        	<%= f.label :宛名 %>
+			    	<span style="margin-left:14.7%"><%= f.text_field :address_name, style: "width: 20%;" %></span>
+		        </div>
+		    </div>
+		      <br>
+
+		    	<p style="margin-left:35%" ><%= f.submit "確認画面へ進む", class: "btn btn-primary", style: "width: 30%;" %></p>
+				<% end %>
+    </div>
+</div>

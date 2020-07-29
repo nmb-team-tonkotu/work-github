@@ -1,0 +1,43 @@
+<div class="row">
+            <h3 class="admin_page_title"><%= @customer.full_name %>さんの会員詳細</h3>
+    <div class="col-6">
+        <table class="admin_customer_table">
+            <tr>
+                <th>顧客ID</th>
+                <% if @customer.is_active === "Available" %>
+                    <th><span  class="mgl-20"><%= @customer.id%></span><span class="Available "><%= "有効会員" %></span></th>
+                <% else %>
+                    <th><%= @customer.id %><span class="Invalid"><%= "退会済" %></span></th>
+                <% end %>
+            </tr>
+            <tr>
+                <th>氏名</th>
+                <th><span class="mgl-20"><%= "#{@customer.family_name}　#{@customer.first_name}"%></span> </th>
+            </tr>
+            <tr>
+                <th>フチガナ</th>
+                <th><span class="mgl-20"><%= "#{@customer.kana_family_name}　#{@customer.kana_first_name}" %></span></th>
+            </tr>
+            <tr>
+                <th>郵便番号</th>
+                <th><span class="mgl-20"><%= @customer.postal_code%></span></th>
+            </tr>
+            <tr>
+                <th>住所</th>
+                <th><span class="mgl-20"><%= @customer.address %></span></th>
+            </tr>
+            <tr>
+                <th>電話番号</th>
+                <th><span class="mgl-20"><%= @customer.phone_number %></span></th>
+            </tr>
+            <tr>
+                <th>メールアドレス</th>
+                <th><span class="mgl-20"><%= @customer.email %></span></th>
+            </tr>
+        </table>
+        <div class=link-wrapper>
+        <%= link_to  "編集する", edit_admins_customer_path(@customer.id), class: "btn btn-primary" %>
+        <%= link_to  "注文履歴一覧をみる", admins_orders_path, class: "btn btn-primary orders-link" %>
+        </div>
+    </div>
+</div>

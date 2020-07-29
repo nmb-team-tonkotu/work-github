@@ -1,0 +1,42 @@
+<div class="col-md-8">
+<% if request.path_info == deliveries_path %>
+	<%= form_for delivery, url: deliveries_path, method: :post do |f| %>
+		<table>
+			<tr>
+				<td>郵便番号(ハイフンなし)</td>
+				<td class="form-inline"><%= f.text_field :postal_code,class: "form-control mgb-10 mgl-20" %></td>
+			</tr>
+			<tr>
+				<td>住所</td>
+				<td class="form-inline"><%= f.text_field :address,class: "form-control mgb-10 mgl-20", style: "width: 500px" %></td>
+			</tr>
+			<tr>
+				<td>宛名</td>
+				<td class="form-inline"><%= f.text_field :name,class: "form-control mgb-10 mgl-20" %></td>
+			</tr>
+		</table>
+
+		<%= f.submit "登録する", class:"btn btn-success mgl"%>
+	<% end %>
+
+<% else %>
+	<%= form_for delivery, url: delivery_path, method: :patch do |f| %>
+		<table>
+			<tr>
+				<td>郵便番号(ハイフンなし)</td>
+				<td class="form-inline"><%= f.text_field :postal_code,class: "form-control mgb-10 mgl-20" %></td>
+			</tr>
+			<tr>
+				<td>住所</td>
+				<td class="form-inline"><%= f.text_field :address,class: "form-control mgb-10 mgl-20", style: "width: 500px" %></td>
+			</tr>
+			<tr>
+				<td>宛名</td>
+				<td class="form-inline"><%= f.text_field :name,class: "form-control mgb-10 mgl-20" %></td>
+			</tr>
+		</table>
+
+		<%= f.submit "編集する", class:"btn btn-primary mgl" %>
+	<% end %>
+<% end %>
+</div>

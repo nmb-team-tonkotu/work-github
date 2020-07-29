@@ -5,13 +5,22 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+      <script src="https://kit.fontawesome.com/f552ef34cc.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   </head>
-
   <body>
-    <%= render partial: "layouts/header" %>
-
-    <%= yield %>
+    <header>
+      <% if current_customer %>
+        <%= render partial: "layouts/header" %>
+      <% else %>
+        <%= render partial: "layouts/admin_header" %>
+      <% end %>
+    </header>
+    <div class="container">
+      <%= flash[:notice] %>
+      <%= yield %>
+    </div>
   </body>
 </html>

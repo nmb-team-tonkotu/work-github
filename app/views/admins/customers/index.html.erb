@@ -1,0 +1,31 @@
+<div class="row">
+    <div class='col-md-offset-2 col-md-7'>
+    <h3 class="admin_page_title">会員一覧</h3>
+        <table class="table admin_customers_table table">
+            <thead>
+                <tr class="active">
+                <th>会員ID</th>
+                <th>指名</th>
+                <th>メールアドレス</th>
+                <th>ステータス</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @customers.each do |customer| %>
+                    <tr>
+                        <td><%= customer.id %></td>
+                        <td ><%= link_to customer.full_name,admins_customer_path(customer.id), class: "customer_link" %></td>
+                        <td><%= customer.email %></td>
+                        <% if customer.is_active == "Available" %>
+                            <td><%= "有効" %></td>
+                        <% else %>
+                            <td><%= "退会済" %></td>
+                        <%end%>
+                    </tr>
+                <%  end %>
+            </tbody>
+        </table>
+                <%= paginate @customers %>
+    </div>
+</div>
+
